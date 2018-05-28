@@ -9,6 +9,11 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String country;
+
+    @OneToOne(mappedBy = "address")
+    private Student student;
+
+    @Column(name = "Zip", length = 4)
     private String zipcode;
     private String city;
     private String addr;
@@ -61,6 +66,14 @@ public class Address {
 
     public void setAddr(String addr) {
         this.addr = addr;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     @Override
